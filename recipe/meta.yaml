@@ -12,7 +12,7 @@ source:
       - fix-windows.patch  # [win]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [unix]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
