@@ -15,7 +15,7 @@ gflags:
 glog:
 - 0.4.0
 libprotobuf:
-- '3.11'
+- '3.12'
 lua:
 - '5'
 pin_run_as_build:
