@@ -1,5 +1,5 @@
 boost_cpp:
-- '1.72'
+- 1.74.0
 c_compiler:
 - vs2017
 cairo:
@@ -23,3 +23,5 @@ pin_run_as_build:
     max_pin: x.x.x
   cairo:
     max_pin: x.x
+target_platform:
+- win-64
