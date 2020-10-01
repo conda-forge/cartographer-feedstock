@@ -29,7 +29,7 @@ requirements:
     - eigen
     - gflags
     - glog
-    - lua
+    - lua 5.3
     - cairo
     - boost-cpp
     - gtest
@@ -44,7 +44,7 @@ requirements:
     - eigen
     - gflags
     - glog
-    - lua
+    - lua 5.3
     - cairo
     - boost-cpp
     - libprotobuf
