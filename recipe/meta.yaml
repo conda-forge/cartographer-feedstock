@@ -12,8 +12,8 @@ source:
       - fix-windows.patch  # [win]
 
 build:
-  number: 2
-  skip: true  # [unix]
+  number: 3
+  skip: false
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
@@ -35,6 +35,10 @@ requirements:
     - gtest
     - gmock
     - libprotobuf
+    - xorg-libx11  # [unix]
+    - xorg-libxext  # [unix]
+    - xorg-libxrender  # [unix]
+    - xorg-libxau  # [unix]
   run:
     - ceres-solver
     - eigen
@@ -44,6 +48,10 @@ requirements:
     - cairo
     - boost-cpp
     - libprotobuf
+    - xorg-libx11  # [unix]
+    - xorg-libxext  # [unix]
+    - xorg-libxrender  # [unix]
+    - xorg-libxau  # [unix]
 
 test:
   commands:
@@ -60,3 +68,5 @@ about:
 extra:
   recipe-maintainers:
     - seanyen
+    - Tobias-Fischer
+    - wolfv
