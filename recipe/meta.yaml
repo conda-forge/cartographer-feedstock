@@ -14,6 +14,7 @@ source:
 
 build:
   number: 3
+  skip: true  # [osx]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
@@ -35,7 +36,6 @@ requirements:
     - gtest
     - gmock
     - libprotobuf
-    - lua              # [unix]
     - xorg-libx11      # [unix]
     - xorg-libxext     # [unix]
     - xorg-libxrender  # [unix]
@@ -50,7 +50,6 @@ requirements:
     - cairo
     - boost-cpp
     - libprotobuf
-    - lua              # [unix]
     - xorg-libx11      # [unix]
     - xorg-libxext     # [unix]
     - xorg-libxrender  # [unix]
