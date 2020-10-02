@@ -96,7 +96,7 @@ index c663e98..75fb8c0 100644
    list(APPEND GMOCK_INCLUDE_DIRS ${GTEST_INCLUDE_DIRS})
  
 +  find_library(GTEST_LIBRARIES
-+    NAMES gtest
++    NAMES gtest_main
 +    HINTS
 +      ENV GTEST_DIR
 +    PATH_SUFFIXES lib
