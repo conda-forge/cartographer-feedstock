@@ -1,0 +1,66 @@
+context:
+  name: cartographer
+  version: 1.0.0
+
+package:
+  name: '{{ name }}'
+  version: '{{ version }}'
+
+source:
+  - url: https://github.com/cartographer-project/cartographer/archive/{{ version }}.tar.gz
+    sha256: 474a410bf6457eb8a0fd92ea412d7889fb013051e625d3ee25e8d65e4113fd6c
+    patches:
+      - sel(win): fix-windows.patch
+
+build:
+  number: 2
+  run_exports:
+    - '{{ pin_subpackage(name, max_pin="x.x") }}'
+
+  skip:
+    - osx
+requirements:
+  build:
+    - '{{ compiler("cxx") }}'
+    - '{{ compiler("c") }}'
+    - ninja
+    - cmake
+    - pkg-config
+  host:
+    - ceres-solver
+    - eigen
+    - gflags
+    - glog
+    - lua
+    - cairo
+    - boost-cpp
+    - gtest
+    - gmock
+    - libprotobuf
+    - sel(unix): lua
+  run:
+    - ceres-solver
+    - eigen
+    - gflags
+    - glog
+    - lua
+    - cairo
+    - boost-cpp
+    - libprotobuf
+
+test:
+  commands:
+    - sel(win): if not exist %LIBRARY_LIB%\\cartographer.lib exit 1
+    - sel(win): if not exist %LIBRARY_BIN%\\cartographer.dll exit 1
+
+about:
+  home: https://github.com/cartographer-project/cartographer
+  license: Apache-2.0
+  license_file: LICENSE
+  summary: |
+    Cartographer is a system that provides real-time simultaneous localization and mapping (SLAM) in 2D and 3D across multiple platforms and sensor configurations.
+
+extra:
+  recipe-maintainers:
+    - seanyen
+

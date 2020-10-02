@@ -1,13 +1,25 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 2e3a686be..642f0c2c9 100644
+index 2e3a686..5406317 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -38,8 +38,11 @@ if (${BUILD_GRPC})
+@@ -31,15 +31,22 @@ google_enable_testing()
+ find_package(Boost REQUIRED COMPONENTS iostreams)
+ find_package(Ceres REQUIRED COMPONENTS SuiteSparse)
+ find_package(Eigen3 REQUIRED)
+-find_package(LuaGoogle REQUIRED)
++# find_package(LuaGoogle REQUIRED)
+ find_package(Protobuf 3.0.0 REQUIRED)
+ 
+ if (${BUILD_GRPC})
    find_package(async_grpc REQUIRED)
  endif()
  
 -include(FindPkgConfig)
 -PKG_SEARCH_MODULE(CAIRO REQUIRED cairo>=1.12.16)
++find_library(LUA_LIBRARY NAMES lua)
++set(LUA_LIBRARIES "${LUA_LIBRARY}")
++find_package(Lua REQUIRED)
++
 +#include(FindPkgConfig)
 +#PKG_SEARCH_MODULE(CAIRO REQUIRED cairo>=1.12.16)
 +find_path(CAIRO_INCLUDE_DIRS cairo/cairo.h)
@@ -16,7 +28,7 @@ index 2e3a686be..642f0c2c9 100644
  
  # Only build the documentation if we can find Sphinx.
  find_package(Sphinx)
-@@ -123,7 +126,7 @@ foreach(ABS_FIL ${ALL_PROTOS})
+@@ -123,7 +130,7 @@ foreach(ABS_FIL ${ALL_PROTOS})
      OUTPUT "${PROJECT_BINARY_DIR}/${DIR}/${FIL_WE}.pb.cc"
             "${PROJECT_BINARY_DIR}/${DIR}/${FIL_WE}.pb.h"
      COMMAND  ${PROTOBUF_PROTOC_EXECUTABLE}
@@ -25,7 +37,7 @@ index 2e3a686be..642f0c2c9 100644
        ${PROJECT_SOURCE_DIR} ${ABS_FIL}
      DEPENDS ${ABS_FIL}
      COMMENT "Running C++ protocol buffer compiler on ${ABS_FIL}"
-@@ -149,7 +152,7 @@ if(${BUILD_GRPC})
+@@ -149,7 +156,7 @@ if(${BUILD_GRPC})
        OUTPUT "${PROJECT_BINARY_DIR}/${DIR}/${FIL_WE}.pb.cc"
               "${PROJECT_BINARY_DIR}/${DIR}/${FIL_WE}.pb.h"
        COMMAND  ${PROTOBUF_PROTOC_EXECUTABLE}
@@ -34,7 +46,7 @@ index 2e3a686be..642f0c2c9 100644
          -I ${PROJECT_SOURCE_DIR}
          ${ABS_FIL}
        DEPENDS ${ABS_FIL}
-@@ -164,6 +167,8 @@ endif()
+@@ -164,6 +171,8 @@ endif()
  set(INSTALL_GENERATED_HDRS ${ALL_PROTO_HDRS} ${ALL_GRPC_SERVICE_HDRS})
  
  add_library(${PROJECT_NAME} ${ALL_LIBRARY_HDRS} ${ALL_LIBRARY_SRCS})
@@ -43,7 +55,7 @@ index 2e3a686be..642f0c2c9 100644
  
  configure_file(
    ${PROJECT_SOURCE_DIR}/cartographer/common/config.h.cmake
-@@ -213,8 +218,8 @@ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
+@@ -213,8 +222,8 @@ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
  target_link_libraries(${PROJECT_NAME} PUBLIC ${Boost_LIBRARIES})
  
  # We expect find_package(Ceres) to have located these for us.
@@ -54,7 +66,7 @@ index 2e3a686be..642f0c2c9 100644
  
  target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
    "${CAIRO_INCLUDE_DIRS}")
-@@ -224,7 +229,7 @@ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
+@@ -224,7 +233,7 @@ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
    ${PROTOBUF_INCLUDE_DIR})
  # TODO(hrapp): This should not explicitly list pthread and use
  # PROTOBUF_LIBRARIES, but that failed on first try.
@@ -63,7 +75,7 @@ index 2e3a686be..642f0c2c9 100644
  if(${BUILD_GRPC})
    target_link_libraries(${PROJECT_NAME} PUBLIC grpc++)
    target_link_libraries(${PROJECT_NAME} PUBLIC async_grpc)
-@@ -238,6 +243,7 @@ set(TARGET_COMPILE_FLAGS "${TARGET_COMPILE_FLAGS} ${GOOG_CXX_FLAGS}")
+@@ -238,6 +247,7 @@ set(TARGET_COMPILE_FLAGS "${TARGET_COMPILE_FLAGS} ${GOOG_CXX_FLAGS}")
  set_target_properties(${PROJECT_NAME} PROPERTIES
    COMPILE_FLAGS ${TARGET_COMPILE_FLAGS})
  
@@ -71,7 +83,7 @@ index 2e3a686be..642f0c2c9 100644
  set(TEST_LIB
    cartographer_test_library
  )
-@@ -248,6 +254,7 @@ target_link_libraries(${TEST_LIB} PUBLIC ${GMOCK_LIBRARY})
+@@ -248,6 +258,7 @@ target_link_libraries(${TEST_LIB} PUBLIC ${GMOCK_LIBRARY})
  target_link_libraries(${TEST_LIB} PUBLIC ${PROJECT_NAME})
  set_target_properties(${TEST_LIB} PROPERTIES
    COMPILE_FLAGS ${TARGET_COMPILE_FLAGS})
@@ -79,7 +91,7 @@ index 2e3a686be..642f0c2c9 100644
  
  foreach(ABS_FIL ${ALL_TESTS})
    file(RELATIVE_PATH REL_FIL ${PROJECT_SOURCE_DIR} ${ABS_FIL})
-@@ -264,7 +271,9 @@ foreach(ABS_FIL ${ALL_TESTS})
+@@ -264,7 +275,9 @@ foreach(ABS_FIL ${ALL_TESTS})
      target_link_libraries("${TEST_TARGET_NAME}" PUBLIC prometheus-cpp)
    endif()
    target_link_libraries("${TEST_TARGET_NAME}" PUBLIC ${TEST_LIB})
@@ -90,7 +102,7 @@ index 2e3a686be..642f0c2c9 100644
  # Add the binary directory first, so that port.h is included after it has
  # been generated.
 diff --git a/cartographer/common/configuration_file_resolver.cc b/cartographer/common/configuration_file_resolver.cc
-index 9774caf10..99c703c7f 100644
+index 9774caf..99c703c 100644
 --- a/cartographer/common/configuration_file_resolver.cc
 +++ b/cartographer/common/configuration_file_resolver.cc
 @@ -19,6 +19,7 @@
@@ -111,7 +123,7 @@ index 9774caf10..99c703c7f 100644
  
  std::string ConfigurationFileResolver::GetFullPathOrDie(
 diff --git a/cartographer/common/internal/testing/thread_pool_for_testing.cc b/cartographer/common/internal/testing/thread_pool_for_testing.cc
-index f804e13b0..c987f68b9 100644
+index f804e13..c987f68 100644
 --- a/cartographer/common/internal/testing/thread_pool_for_testing.cc
 +++ b/cartographer/common/internal/testing/thread_pool_for_testing.cc
 @@ -16,7 +16,7 @@
@@ -124,7 +136,7 @@ index f804e13b0..c987f68b9 100644
  #include <chrono>
  #include <numeric>
 diff --git a/cartographer/common/port.h b/cartographer/common/port.h
-index 338861f31..ad4fda295 100644
+index 338861f..ad4fda2 100644
 --- a/cartographer/common/port.h
 +++ b/cartographer/common/port.h
 @@ -25,6 +25,37 @@
@@ -166,7 +178,7 @@ index 338861f31..ad4fda295 100644
  
  using int8 = int8_t;
 diff --git a/cartographer/common/thread_pool.cc b/cartographer/common/thread_pool.cc
-index bc3c743a0..db424d1a7 100644
+index bc3c743..db424d1 100644
 --- a/cartographer/common/thread_pool.cc
 +++ b/cartographer/common/thread_pool.cc
 @@ -16,7 +16,7 @@
@@ -179,7 +191,7 @@ index bc3c743a0..db424d1a7 100644
  #include <chrono>
  #include <numeric>
 diff --git a/cartographer/mapping/pose_graph_interface.h b/cartographer/mapping/pose_graph_interface.h
-index 6483ef4e9..645672077 100644
+index 6483ef4..6456720 100644
 --- a/cartographer/mapping/pose_graph_interface.h
 +++ b/cartographer/mapping/pose_graph_interface.h
 @@ -18,6 +18,7 @@
@@ -191,7 +203,7 @@ index 6483ef4e9..645672077 100644
  #include "cartographer/common/optional.h"
  #include "cartographer/mapping/id.h"
 diff --git a/cmake/functions.cmake b/cmake/functions.cmake
-index 3bfd343f0..0451a6124 100644
+index 3bfd343..0451a61 100644
 --- a/cmake/functions.cmake
 +++ b/cmake/functions.cmake
 @@ -72,6 +72,7 @@ macro(google_initialize_cartographer_project)
