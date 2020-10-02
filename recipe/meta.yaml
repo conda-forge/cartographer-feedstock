@@ -10,10 +10,10 @@ source:
     sha256: 474a410bf6457eb8a0fd92ea412d7889fb013051e625d3ee25e8d65e4113fd6c
     patches:
       - fix-windows.patch  # [win]
+      - fix-unix.patch
 
 build:
-  number: 2
-  skip: true  # [unix]
+  number: 3
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
@@ -35,6 +35,12 @@ requirements:
     - gtest
     - gmock
     - libprotobuf
+    - lua              # [unix]
+    - xorg-libx11      # [unix]
+    - xorg-libxext     # [unix]
+    - xorg-libxrender  # [unix]
+    - xorg-libxau      # [unix]
+
   run:
     - ceres-solver
     - eigen
@@ -44,6 +50,11 @@ requirements:
     - cairo
     - boost-cpp
     - libprotobuf
+    - lua              # [unix]
+    - xorg-libx11      # [unix]
+    - xorg-libxext     # [unix]
+    - xorg-libxrender  # [unix]
+    - xorg-libxau      # [unix]
 
 test:
   commands:
