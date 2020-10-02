@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 2e3a686be..642f0c2c9 100644
+index 2e3a686..aa8cf8e 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -213,8 +218,8 @@ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
+@@ -213,8 +213,8 @@ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
  target_link_libraries(${PROJECT_NAME} PUBLIC ${Boost_LIBRARIES})
  
  # We expect find_package(Ceres) to have located these for us.
@@ -18,12 +18,12 @@ index 2e3a686be..642f0c2c9 100644
  target_include_directories(${TEST_LIB} SYSTEM PRIVATE
    "${GMOCK_INCLUDE_DIRS}")
 -target_link_libraries(${TEST_LIB} PUBLIC ${GMOCK_LIBRARY})
-+target_link_libraries(${TEST_LIB} PUBLIC ${GMOCK_LIBRARIES})
++target_link_libraries(${TEST_LIB} PUBLIC ${GMOCK_LIBRARIES} ${GTEST_LIBRARIES})
  target_link_libraries(${TEST_LIB} PUBLIC ${PROJECT_NAME})
  set_target_properties(${TEST_LIB} PROPERTIES
    COMPILE_FLAGS ${TARGET_COMPILE_FLAGS})
 diff --git a/cartographer/common/configuration_file_resolver.cc b/cartographer/common/configuration_file_resolver.cc
-index 9774caf10..99c703c7f 100644
+index 9774caf..99c703c 100644
 --- a/cartographer/common/configuration_file_resolver.cc
 +++ b/cartographer/common/configuration_file_resolver.cc
 @@ -19,6 +19,7 @@
@@ -43,19 +43,6 @@ index 9774caf10..99c703c7f 100644
  }
  
  std::string ConfigurationFileResolver::GetFullPathOrDie(
-
-diff --git a/cartographer/mapping/pose_graph_interface.h b/cartographer/mapping/pose_graph_interface.h
-index 6483ef4e9..645672077 100644
---- a/cartographer/mapping/pose_graph_interface.h
-+++ b/cartographer/mapping/pose_graph_interface.h
-@@ -18,6 +18,7 @@
- #define CARTOGRAPHER_MAPPING_POSE_GRAPH_INTERFACE_H_
- 
- #include <vector>
-+#include <array>
- 
- #include "cartographer/common/optional.h"
- #include "cartographer/mapping/id.h"
 diff --git a/cartographer/mapping/internal/3d/scan_matching/rotation_delta_cost_functor_3d_test.cc b/cartographer/mapping/internal/3d/scan_matching/rotation_delta_cost_functor_3d_test.cc
 index 86f46d4..02e51aa 100644
 --- a/cartographer/mapping/internal/3d/scan_matching/rotation_delta_cost_functor_3d_test.cc
@@ -70,4 +57,62 @@ index 86f46d4..02e51aa 100644
  #include "cartographer/mapping/internal/3d/scan_matching/rotation_delta_cost_functor_3d.h"
  
  #include "gtest/gtest.h"
-
+diff --git a/cartographer/mapping/pose_graph_interface.h b/cartographer/mapping/pose_graph_interface.h
+index 6483ef4..6456720 100644
+--- a/cartographer/mapping/pose_graph_interface.h
++++ b/cartographer/mapping/pose_graph_interface.h
+@@ -18,6 +18,7 @@
+ #define CARTOGRAPHER_MAPPING_POSE_GRAPH_INTERFACE_H_
+ 
+ #include <vector>
++#include <array>
+ 
+ #include "cartographer/common/optional.h"
+ #include "cartographer/mapping/id.h"
+diff --git a/cmake/functions.cmake b/cmake/functions.cmake
+index 3bfd343..8bee31b 100644
+--- a/cmake/functions.cmake
++++ b/cmake/functions.cmake
+@@ -40,6 +40,7 @@ function(google_test NAME ARG_SRC)
+   target_include_directories("${NAME}" SYSTEM PRIVATE
+     "${GMOCK_INCLUDE_DIRS}")
+   target_link_libraries("${NAME}" PUBLIC ${GMOCK_LIBRARIES})
++  target_link_libraries("${NAME}" PUBLIC ${GTEST_LIBRARIES})
+ 
+   add_test(${NAME} ${NAME})
+ endfunction()
+@@ -131,4 +132,5 @@ endmacro()
+ macro(google_enable_testing)
+   enable_testing()
+   find_package(GMock REQUIRED)
++  find_package(GTest REQUIRED)
+ endmacro()
+diff --git a/cmake/modules/FindGMock.cmake b/cmake/modules/FindGMock.cmake
+index c663e98..75fb8c0 100644
+--- a/cmake/modules/FindGMock.cmake
++++ b/cmake/modules/FindGMock.cmake
+@@ -41,6 +41,15 @@ if(NOT GMock_FOUND)
+   )
+   list(APPEND GMOCK_INCLUDE_DIRS ${GTEST_INCLUDE_DIRS})
+ 
++  find_library(GTEST_LIBRARIES
++    NAMES gtest
++    HINTS
++      ENV GTEST_DIR
++    PATH_SUFFIXES lib
++    PATHS
++      /usr
++  )
++
+   if(NOT GMOCK_LIBRARIES)
+     # If no system-wide gmock found, then find src version.
+     # Ubuntu might have this.
+@@ -71,6 +80,8 @@ endif()
+ include(FindPackageHandleStandardArgs)
+ find_package_handle_standard_args(GMock DEFAULT_MSG GMOCK_LIBRARIES
+                                   GMOCK_INCLUDE_DIRS)
++find_package_handle_standard_args(GTest DEFAULT_MSG GTEST_LIBRARIES
++                                  GTEST_INCLUDE_DIRS)
+ 
+ # Mitigate build issue with Catkin
+ set(GMOCK_FOUND FALSE)
