@@ -10,7 +10,7 @@ source:
     sha256: 474a410bf6457eb8a0fd92ea412d7889fb013051e625d3ee25e8d65e4113fd6c
     patches:
       - fix-windows.patch  # [win]
-      - fix-unix.patch
+      - fix-unix.patch     # [unix]
 
 build:
   number: 3
