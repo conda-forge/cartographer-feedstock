@@ -7,7 +7,7 @@ index 2e3a686..f56d033 100644
  find_package(Ceres REQUIRED COMPONENTS SuiteSparse)
  find_package(Eigen3 REQUIRED)
 -find_package(LuaGoogle REQUIRED)
-+set(LUA_LIBRARY ${CMAKE_INSTALL_PREFIX}/lib/liblua.so)
++set(LUA_LIBRARY ${CMAKE_INSTALL_PREFIX}/lib/liblua${CMAKE_SHARED_LIBRARY_SUFFIX})
 +find_package(Lua REQUIRED)
  find_package(Protobuf 3.0.0 REQUIRED)
  
