@@ -93,3 +93,17 @@ index 6483ef4..6456720 100644
  
  #include "cartographer/common/optional.h"
  #include "cartographer/mapping/id.h"
+diff --git a/cartographer/mapping/internal/3d/scan_matching/rotation_delta_cost_functor_3d_test.cc b/cartographer/mapping/internal/3d/scan_matching/rotation_delta_cost_functor_3d_test.cc
+index 86f46d4..8fdef65 100644
+--- a/cartographer/mapping/internal/3d/scan_matching/rotation_delta_cost_functor_3d_test.cc
++++ b/cartographer/mapping/internal/3d/scan_matching/rotation_delta_cost_functor_3d_test.cc
+@@ -14,6 +14,9 @@
+  * limitations under the License.
+  */
+ 
++#include <array>
++#include <vector>
++
+ #include "cartographer/mapping/internal/3d/scan_matching/rotation_delta_cost_functor_3d.h"
+ 
+ #include "gtest/gtest.h"
