@@ -5,11 +5,9 @@ Home: https://github.com/cartographer-project/cartographer
 
 Package license: Apache-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cartographer-feedstock/blob/master/LICENSE.txt)
 
 Summary: Cartographer is a system that provides real-time simultaneous localization and mapping (SLAM) in 2D and 3D across multiple platforms and sensor configurations.
-
-
 
 
 Current build status
