@@ -1,5 +1,5 @@
 boost_cpp:
-- 1.72.0
+- 1.74.0
 c_compiler:
 - vs2017
 cairo:
@@ -12,10 +12,12 @@ cxx_compiler:
 - vs2017
 gflags:
 - '2.2'
+glib:
+- '2.58'
 glog:
 - 0.4.0
 libprotobuf:
-- '3.12'
+- '3.13'
 lua:
 - '5'
 pin_run_as_build:

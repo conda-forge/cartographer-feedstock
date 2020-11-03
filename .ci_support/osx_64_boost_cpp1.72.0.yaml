@@ -1,9 +1,11 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 boost_cpp:
 - 1.72.0
 c_compiler:
-- gcc
+- clang
 c_compiler_version:
-- '7'
+- '10'
 cairo:
 - '1.16'
 channel_sources:
@@ -11,23 +13,28 @@ channel_sources:
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
+- clangxx
 cxx_compiler_version:
-- '7'
-docker_image:
-- condaforge/linux-anvil-comp7
+- '10'
 gflags:
 - '2.2'
+glib:
+- '2.58'
 glog:
 - 0.4.0
 libprotobuf:
-- '3.12'
+- '3.13'
 lua:
 - '5'
+macos_machine:
+- x86_64-apple-darwin13.4.0
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
   cairo:
     max_pin: x.x
 target_platform:
-- linux-64
+- osx-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
