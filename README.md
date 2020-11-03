@@ -5,11 +5,9 @@ Home: https://github.com/cartographer-project/cartographer
 
 Package license: Apache-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cartographer-feedstock/blob/master/LICENSE.txt)
 
 Summary: Cartographer is a system that provides real-time simultaneous localization and mapping (SLAM) in 2D and 3D across multiple platforms and sensor configurations.
-
-
 
 
 Current build status
@@ -37,24 +35,59 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
+              <td>linux_64_boost_cpp1.72.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9559&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cartographer-feedstock?branchName=master&jobName=linux&configuration=linux_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cartographer-feedstock?branchName=master&jobName=linux&configuration=linux_64_boost_cpp1.72.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64</td>
+              <td>linux_64_boost_cpp1.74.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9559&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cartographer-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cartographer-feedstock?branchName=master&jobName=linux&configuration=linux_64_boost_cpp1.74.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64</td>
+              <td>linux_aarch64_boost_cpp1.72.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9559&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cartographer-feedstock?branchName=master&jobName=win&configuration=win_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cartographer-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_boost_cpp1.72.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64_boost_cpp1.74.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9559&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cartographer-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_boost_cpp1.74.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_boost_cpp1.72.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9559&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cartographer-feedstock?branchName=master&jobName=osx&configuration=osx_64_boost_cpp1.72.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_boost_cpp1.74.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9559&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cartographer-feedstock?branchName=master&jobName=osx&configuration=osx_64_boost_cpp1.74.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_boost_cpp1.72.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9559&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cartographer-feedstock?branchName=master&jobName=win&configuration=win_64_boost_cpp1.72.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_boost_cpp1.74.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9559&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cartographer-feedstock?branchName=master&jobName=win&configuration=win_64_boost_cpp1.74.0" alt="variant">
                 </a>
               </td>
             </tr>

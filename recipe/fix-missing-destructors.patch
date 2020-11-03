@@ -1,0 +1,49 @@
+diff --git a/cartographer/mapping/2d/grid_2d.h b/cartographer/mapping/2d/grid_2d.h
+index 72bbc63..534d9bc 100644
+--- a/cartographer/mapping/2d/grid_2d.h
++++ b/cartographer/mapping/2d/grid_2d.h
+@@ -36,6 +36,7 @@ class Grid2D : public GridInterface {
+   explicit Grid2D(const MapLimits& limits, float min_correspondence_cost,
+                   float max_correspondence_cost);
+   explicit Grid2D(const proto::Grid2D& proto);
++  virtual ~Grid2D() {}
+ 
+   // Returns the limits of this Grid2D.
+   const MapLimits& limits() const { return limits_; }
+diff --git a/cartographer/mapping/2d/probability_grid.h b/cartographer/mapping/2d/probability_grid.h
+index 540f47e..79dace6 100644
+--- a/cartographer/mapping/2d/probability_grid.h
++++ b/cartographer/mapping/2d/probability_grid.h
+@@ -32,6 +32,7 @@ class ProbabilityGrid : public Grid2D {
+  public:
+   explicit ProbabilityGrid(const MapLimits& limits);
+   explicit ProbabilityGrid(const proto::Grid2D& proto);
++  virtual ~ProbabilityGrid() {}
+ 
+   // Sets the probability of the cell at 'cell_index' to the given
+   // 'probability'. Only allowed if the cell was unknown before.
+diff --git a/cartographer/mapping/2d/probability_grid_range_data_inserter_2d.h b/cartographer/mapping/2d/probability_grid_range_data_inserter_2d.h
+index 83a04b8..87ddf66 100644
+--- a/cartographer/mapping/2d/probability_grid_range_data_inserter_2d.h
++++ b/cartographer/mapping/2d/probability_grid_range_data_inserter_2d.h
+@@ -40,6 +40,7 @@ class ProbabilityGridRangeDataInserter2D : public RangeDataInserterInterface {
+  public:
+   explicit ProbabilityGridRangeDataInserter2D(
+       const proto::ProbabilityGridRangeDataInserterOptions2D& options);
++  virtual ~ProbabilityGridRangeDataInserter2D() {}
+ 
+   ProbabilityGridRangeDataInserter2D(
+       const ProbabilityGridRangeDataInserter2D&) = delete;
+diff --git a/cartographer/mapping/range_data_inserter_interface.h b/cartographer/mapping/range_data_inserter_interface.h
+index b9051ef..0a3d7c7 100644
+--- a/cartographer/mapping/range_data_inserter_interface.h
++++ b/cartographer/mapping/range_data_inserter_interface.h
+@@ -35,6 +35,8 @@ class RangeDataInserterInterface {
+   // Inserts 'range_data' into 'grid'.
+   virtual void Insert(const sensor::RangeData& range_data,
+                       GridInterface* grid) const = 0;
++
++  virtual ~RangeDataInserterInterface() {}
+ };
+ 
+ }  // namespace mapping

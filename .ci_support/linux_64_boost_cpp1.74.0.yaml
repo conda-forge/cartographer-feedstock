@@ -1,21 +1,31 @@
 boost_cpp:
-- 1.72.0
+- 1.74.0
 c_compiler:
-- vs2017
+- gcc
+c_compiler_version:
+- '7'
 cairo:
 - '1.16'
+cdt_name:
+- cos6
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2017
+- gxx
+cxx_compiler_version:
+- '7'
+docker_image:
+- condaforge/linux-anvil-comp7
 gflags:
 - '2.2'
+glib:
+- '2.58'
 glog:
 - 0.4.0
 libprotobuf:
-- '3.12'
+- '3.13'
 lua:
 - '5'
 pin_run_as_build:
@@ -24,4 +34,7 @@ pin_run_as_build:
   cairo:
     max_pin: x.x
 target_platform:
-- win-64
+- linux-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
