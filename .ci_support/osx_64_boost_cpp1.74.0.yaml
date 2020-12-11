@@ -19,7 +19,7 @@ cxx_compiler_version:
 gflags:
 - '2.2'
 glib:
-- '2.58'
+- 2.64.6
 glog:
 - 0.4.0
 libprotobuf:
