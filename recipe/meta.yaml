@@ -9,9 +9,9 @@ source:
   - url: https://github.com/cartographer-project/cartographer/archive/{{ version }}.tar.gz
     sha256: abba0daa348095a5e821ee5e8037bad5d06f89f4c21ea850da5ab8a7e6997a2a
     patches:
-      - fix-windows.patch  # [win]
-      - fix-unix.patch     # [unix]
-      - fix-missing-destructors.patch
+      # - fix-windows.patch  # [win]
+      # - fix-unix.patch     # [unix]
+      # - fix-missing-destructors.patch
 
 build:
   number: 0
