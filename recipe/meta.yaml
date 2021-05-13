@@ -14,7 +14,7 @@ source:
       - fix-missing-destructors.patch
 
 build:
-  number: 6
+  number: 7
   skip: false
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
