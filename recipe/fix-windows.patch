@@ -28,6 +28,15 @@ index 2e3a686..5406317 100644
          -I ${PROJECT_SOURCE_DIR}
          ${ABS_FIL}
        DEPENDS ${ABS_FIL}
+@@ -185,6 +185,8 @@ endif()
+ set(INSTALL_GENERATED_HDRS ${ALL_PROTO_HDRS} ${ALL_GRPC_SERVICE_HDRS})
+ 
+ add_library(${PROJECT_NAME} STATIC ${ALL_LIBRARY_HDRS} ${ALL_LIBRARY_SRCS})
++target_compile_definitions(${PROJECT_NAME} PRIVATE "CARTOGRAPHER_API_BUILDING_DLL")
++target_compile_definitions(${PROJECT_NAME} PRIVATE "CARTOGRAPHER_API_PUBLIC=__declspec(dllexport)")
+ 
+ configure_file(
+   ${PROJECT_SOURCE_DIR}/cartographer/common/config.h.cmake
 @@ -238,6 +247,7 @@ set(TARGET_COMPILE_FLAGS "${TARGET_COMPILE_FLAGS} ${GOOG_CXX_FLAGS}")
  set_target_properties(${PROJECT_NAME} PROPERTIES
    COMPILE_FLAGS ${TARGET_COMPILE_FLAGS})
