@@ -26,6 +26,7 @@ requirements:
     - cmake
     - pkg-config
   host:
+    - abseil-cpp
     - ceres-solver 1.*
     - gflags
     - glog
