@@ -1,3 +1,17 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ef2fcb3e6..b6cdc6c00 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -295,6 +295,9 @@ if(${BUILD_PROMETHEUS})
+   target_link_libraries(${PROJECT_NAME} PUBLIC prometheus-cpp-pull)
+   target_compile_definitions(${PROJECT_NAME} PUBLIC USE_PROMETHEUS=1)
+ endif()
++if(UNIX AND NOT APPLE)
++  target_link_libraries(${PROJECT_NAME} PUBLIC rt)
++endif()
+ 
+ set(TARGET_COMPILE_FLAGS "${TARGET_COMPILE_FLAGS} ${GOOG_CXX_FLAGS}")
+ set_target_properties(${PROJECT_NAME} PROPERTIES
 diff --git a/cartographer/mapping/pose_graph_interface.h b/cartographer/mapping/pose_graph_interface.h
 index 6483ef4..6456720 100644
 --- a/cartographer/mapping/pose_graph_interface.h
