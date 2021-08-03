@@ -11,7 +11,6 @@ source:
     patches:
       - fix-windows.patch  # [win]
       - fix-unix.patch     # [unix]
-      - fix-missing-destructors.patch
 
 build:
   number: 0
@@ -28,8 +27,6 @@ requirements:
     - pkg-config
   host:
     - ceres-solver 1.*
-    # exact pin required, see https://github.com/conda-forge/ceres-solver-feedstock/issues/15
-    - eigen 3.3.7
     - gflags
     - glog
     - lua
