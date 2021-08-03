@@ -29,6 +29,7 @@ requirements:
   host:
     - abseil-cpp
     - ceres-solver 1.*
+    - eigen
     - gflags
     - glog
     - lua
