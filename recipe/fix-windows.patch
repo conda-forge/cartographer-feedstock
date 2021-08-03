@@ -2,6 +2,14 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 2e3a686..5406317 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
+@@ -32,7 +32,6 @@ google_enable_testing()
+ find_package(absl REQUIRED)
+ set(BOOST_COMPONENTS iostreams)
+ if(WIN32)
+-  list(APPEND BOOST_COMPONENTS zlib)
+   set(Boost_USE_STATIC_LIBS FALSE)
+ endif()
+ find_package(Boost REQUIRED COMPONENTS ${BOOST_COMPONENTS})
 @@ -123,7 +130,7 @@ foreach(ABS_FIL ${ALL_PROTOS})
      OUTPUT "${PROJECT_BINARY_DIR}/${DIR}/${FIL_WE}.pb.cc"
             "${PROJECT_BINARY_DIR}/${DIR}/${FIL_WE}.pb.h"
