@@ -28,3 +28,27 @@ index ddb88ea902..776d2cee32 100644
  
    const auto gravity_estimate = nodes.back().ToRigid().rotation();
  
+diff --git a/cartographer/sensor/internal/ordered_multi_queue.cc b/cartographer/sensor/internal/ordered_multi_queue.cc
+index 26c8ee16d1..213b21365f 100644
+--- a/cartographer/sensor/internal/ordered_multi_queue.cc
++++ b/cartographer/sensor/internal/ordered_multi_queue.cc
+@@ -64,8 +64,8 @@ void OrderedMultiQueue::Add(const QueueKey& queue_key,
+                             std::unique_ptr<Data> data) {
+   auto it = queues_.find(queue_key);
+   if (it == queues_.end()) {
+-    LOG_EVERY_N(WARNING, 1000)
+-        << "Ignored data for queue: '" << queue_key << "'";
++    //LOG_EVERY_N(WARNING, 1000)
++    //    << "Ignored data for queue: '" << queue_key << "'";
+     return;
+   }
+   it->second.queue.Push(std::move(data));
+@@ -152,7 +152,7 @@ void OrderedMultiQueue::CannotMakeProgress(const QueueKey& queue_key) {
+   blocker_ = queue_key;
+   for (auto& entry : queues_) {
+     if (entry.second.queue.Size() > kMaxQueueSize) {
+-      LOG_EVERY_N(WARNING, 60) << "Queue waiting for data: " << queue_key;
++      //LOG_EVERY_N(WARNING, 60) << "Queue waiting for data: " << queue_key;
+       return;
+     }
+   }
