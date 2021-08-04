@@ -12,10 +12,10 @@ source:
       - fix-windows.patch  # [win]
       - fix-unix.patch     # [unix]
       - fix-missing-destructors.patch
+      - fix-log.patch      # [win]
 
 build:
   number: 8
-  skip: true  # [win]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
