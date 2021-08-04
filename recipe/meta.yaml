@@ -12,6 +12,7 @@ source:
       - fix-windows.patch  # [win]
       - fix-unix.patch     # [unix]
       - fix-lua.patch
+      - fix-log.patch      # [not linux]
 
 build:
   number: 0
