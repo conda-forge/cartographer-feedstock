@@ -15,3 +15,27 @@ index 715b0408f1..525232a9e3 100644
    ++num_total_;
    if (num_total_ > 1 &&
        time - last_time_ <= common::FromSeconds(options_.max_time_seconds()) &&
+diff --git a/cartographer/sensor/internal/ordered_multi_queue.cc b/cartographer/sensor/internal/ordered_multi_queue.cc
+index 26c8ee16d1..213b21365f 100644
+--- a/cartographer/sensor/internal/ordered_multi_queue.cc
++++ b/cartographer/sensor/internal/ordered_multi_queue.cc
+@@ -64,8 +64,8 @@ void OrderedMultiQueue::Add(const QueueKey& queue_key,
+                             std::unique_ptr<Data> data) {
+   auto it = queues_.find(queue_key);
+   if (it == queues_.end()) {
+-    LOG_EVERY_N(WARNING, 1000)
+-        << "Ignored data for queue: '" << queue_key << "'";
++    //LOG_EVERY_N(WARNING, 1000)
++    //    << "Ignored data for queue: '" << queue_key << "'";
+     return;
+   }
+   it->second.queue.Push(std::move(data));
+@@ -152,7 +152,7 @@ void OrderedMultiQueue::CannotMakeProgress(const QueueKey& queue_key) {
+   blocker_ = queue_key;
+   for (auto& entry : queues_) {
+     if (entry.second.queue.Size() > kMaxQueueSize) {
+-      LOG_EVERY_N(WARNING, 60) << "Queue waiting for data: " << queue_key;
++      //LOG_EVERY_N(WARNING, 60) << "Queue waiting for data: " << queue_key;
+       return;
+     }
+   }
