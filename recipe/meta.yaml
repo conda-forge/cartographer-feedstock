@@ -13,6 +13,7 @@ source:
       - fix-unix.patch     # [unix]
       - fix-lua.patch
       - fix-log.patch      # [not linux]
+      - fix-osx.patch      # [osx]
 
 build:
   number: 0
