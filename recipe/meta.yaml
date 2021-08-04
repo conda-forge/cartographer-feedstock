@@ -15,6 +15,7 @@ source:
       - fix-log.patch      # [not linux]
       - fix-osx.patch      # [osx]
       - fix-static.patch   # [not win]
+      - fix-testing.patch
 
 build:
   number: 0
