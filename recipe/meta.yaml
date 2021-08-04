@@ -14,6 +14,7 @@ source:
       - fix-lua.patch
       - fix-log.patch      # [not linux]
       - fix-osx.patch      # [osx]
+      - fix-static.patch
 
 build:
   number: 0
