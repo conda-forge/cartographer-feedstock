@@ -1,86 +1,17 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 2e3a686..f56d033 100644
+index ef2fcb3e6..b6cdc6c00 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -31,7 +31,8 @@ google_enable_testing()
- find_package(Boost REQUIRED COMPONENTS iostreams)
- find_package(Ceres REQUIRED COMPONENTS SuiteSparse)
- find_package(Eigen3 REQUIRED)
--find_package(LuaGoogle REQUIRED)
-+set(LUA_LIBRARY ${CMAKE_INSTALL_PREFIX}/lib/liblua${CMAKE_SHARED_LIBRARY_SUFFIX})
-+find_package(Lua REQUIRED)
- find_package(Protobuf 3.0.0 REQUIRED)
+@@ -295,6 +295,9 @@ if(${BUILD_PROMETHEUS})
+   target_link_libraries(${PROJECT_NAME} PUBLIC prometheus-cpp-pull)
+   target_compile_definitions(${PROJECT_NAME} PUBLIC USE_PROMETHEUS=1)
+ endif()
++if(UNIX AND NOT APPLE)
++  target_link_libraries(${PROJECT_NAME} PUBLIC rt)
++endif()
  
- if (${BUILD_GRPC})
-@@ -213,8 +214,10 @@ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
- target_link_libraries(${PROJECT_NAME} PUBLIC ${Boost_LIBRARIES})
- 
- # We expect find_package(Ceres) to have located these for us.
--target_link_libraries(${PROJECT_NAME} PUBLIC glog)
--target_link_libraries(${PROJECT_NAME} PUBLIC gflags)
-+find_library(GLOG_LIBRARY NAMES glog)
-+find_library(GFLAGS_LIBRARY NAMES gflags)
-+target_link_libraries(${PROJECT_NAME} PUBLIC ${GLOG_LIBRARY})
-+target_link_libraries(${PROJECT_NAME} PUBLIC ${GFLAGS_LIBRARY})
- 
- target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
-   "${CAIRO_INCLUDE_DIRS}")
-@@ -244,7 +247,9 @@ set(TEST_LIB
- add_library(${TEST_LIB} ${TEST_LIBRARY_HDRS} ${TEST_LIBRARY_SRCS})
- target_include_directories(${TEST_LIB} SYSTEM PRIVATE
-   "${GMOCK_INCLUDE_DIRS}")
--target_link_libraries(${TEST_LIB} PUBLIC ${GMOCK_LIBRARY})
-+find_library(GMOCK_LIBRARY NAMES gmock)
-+find_package(GTest REQUIRED)
-+target_link_libraries(${TEST_LIB} PUBLIC GTest::GTest ${GMOCK_LIBRARY})
- target_link_libraries(${TEST_LIB} PUBLIC ${PROJECT_NAME})
- set_target_properties(${TEST_LIB} PROPERTIES
-   COMPILE_FLAGS ${TARGET_COMPILE_FLAGS})
-diff --git a/cartographer/mapping/3d/hybrid_grid_test.cc b/cartographer/mapping/3d/hybrid_grid_test.cc
-index 62309de..af1aaf2 100644
---- a/cartographer/mapping/3d/hybrid_grid_test.cc
-+++ b/cartographer/mapping/3d/hybrid_grid_test.cc
-@@ -201,25 +201,25 @@ TEST_F(RandomHybridGridTest, ToProto) {
-   EXPECT_EQ(proto_map, hybrid_grid_map);
- }
- 
--struct EigenComparator {
--  bool operator()(const Eigen::Vector3i& lhs,
--                  const Eigen::Vector3i& rhs) const {
--    return std::forward_as_tuple(lhs.x(), lhs.y(), lhs.z()) <
--           std::forward_as_tuple(rhs.x(), rhs.y(), rhs.z());
--  }
--};
-+// struct EigenComparator {
-+//   bool operator()(const Eigen::Vector3i& lhs,
-+//                   const Eigen::Vector3i& rhs) const {
-+//     return std::forward_as_tuple(lhs.x(), lhs.y(), lhs.z()) <
-+//            std::forward_as_tuple(rhs.x(), rhs.y(), rhs.z());
-+//   }
-+// };
- 
--TEST_F(RandomHybridGridTest, FromProto) {
--  const HybridGrid constructed_grid(hybrid_grid_.ToProto());
-+// TEST_F(RandomHybridGridTest, FromProto) {
-+//   const HybridGrid constructed_grid(hybrid_grid_.ToProto());
- 
--  std::map<Eigen::Vector3i, float, EigenComparator> member_map(
--      hybrid_grid_.begin(), hybrid_grid_.end());
-+//   std::map<Eigen::Vector3i, float, EigenComparator> member_map(
-+//       hybrid_grid_.begin(), hybrid_grid_.end());
- 
--  std::map<Eigen::Vector3i, float, EigenComparator> constructed_map(
--      constructed_grid.begin(), constructed_grid.end());
-+//   std::map<Eigen::Vector3i, float, EigenComparator> constructed_map(
-+//       constructed_grid.begin(), constructed_grid.end());
- 
--  EXPECT_EQ(member_map, constructed_map);
--}
-+//   EXPECT_EQ(member_map, constructed_map);
-+// }
- 
- }  // namespace
- }  // namespace mapping
+ set(TARGET_COMPILE_FLAGS "${TARGET_COMPILE_FLAGS} ${GOOG_CXX_FLAGS}")
+ set_target_properties(${PROJECT_NAME} PROPERTIES
 diff --git a/cartographer/mapping/pose_graph_interface.h b/cartographer/mapping/pose_graph_interface.h
 index 6483ef4..6456720 100644
 --- a/cartographer/mapping/pose_graph_interface.h

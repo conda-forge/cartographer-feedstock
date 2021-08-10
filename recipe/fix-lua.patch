@@ -1,0 +1,24 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ef2fcb3e6..59c41213d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -38,14 +38,14 @@ endif()
+ find_package(Boost REQUIRED COMPONENTS ${BOOST_COMPONENTS})
+ find_package(Ceres REQUIRED COMPONENTS SuiteSparse)
+ find_package(Eigen3 REQUIRED)
+-find_package(LuaGoogle REQUIRED)
+ if(WIN32)
+-  # On Windows, Protobuf is incorrectly found by the bundled CMake module, so prefer native CMake config.
+-  set(protobuf_MODULE_COMPATIBLE TRUE CACHE INTERNAL "")
+-  find_package(Protobuf 3.0.0 CONFIG)
++  find_library(LUA_LIBRARY NAMES lua)
++  set(LUA_LIBRARIES "${LUA_LIBRARY}")
+ else()
+-  find_package(Protobuf 3.0.0 REQUIRED)
++  set(LUA_LIBRARY ${CMAKE_INSTALL_PREFIX}/lib/liblua${CMAKE_SHARED_LIBRARY_SUFFIX})
+ endif()
++find_package(Lua REQUIRED)
++find_package(Protobuf 3.0.0 REQUIRED)
+ 
+ if (${BUILD_GRPC})
+   find_package(async_grpc REQUIRED)

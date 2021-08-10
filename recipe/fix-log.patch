@@ -15,6 +15,19 @@ index 715b0408f1..525232a9e3 100644
    ++num_total_;
    if (num_total_ > 1 &&
        time - last_time_ <= common::FromSeconds(options_.max_time_seconds()) &&
+diff --git a/cartographer/mapping/internal/imu_based_pose_extrapolator.cc b/cartographer/mapping/internal/imu_based_pose_extrapolator.cc
+index ddb88ea902..776d2cee32 100644
+--- a/cartographer/mapping/internal/imu_based_pose_extrapolator.cc
++++ b/cartographer/mapping/internal/imu_based_pose_extrapolator.cc
+@@ -315,7 +315,7 @@ ImuBasedPoseExtrapolator::ExtrapolatePosesWithGravity(
+   // Solve.
+   ceres::Solver::Summary summary;
+   ceres::Solve(solver_options_, &problem, &summary);
+-  LOG_IF_EVERY_N(INFO, !fix_gravity, 20) << "Gravity was: " << gravity_constant;
++  //LOG_IF_EVERY_N(INFO, !fix_gravity, 20) << "Gravity was: " << gravity_constant;
+ 
+   const auto gravity_estimate = nodes.back().ToRigid().rotation();
+ 
 diff --git a/cartographer/sensor/internal/ordered_multi_queue.cc b/cartographer/sensor/internal/ordered_multi_queue.cc
 index 26c8ee16d1..213b21365f 100644
 --- a/cartographer/sensor/internal/ordered_multi_queue.cc
