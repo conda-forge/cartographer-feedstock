@@ -1,5 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
+abseil_cpp:
+- '20210324.2'
 boost_cpp:
 - 1.74.0
 c_compiler:
@@ -23,7 +25,7 @@ glib:
 glog:
 - '0.5'
 libprotobuf:
-- '3.16'
+- '3.18'
 lua:
 - '5'
 macos_machine:
