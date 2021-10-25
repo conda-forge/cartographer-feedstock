@@ -16,5 +16,7 @@ cmake .. \
 cmake --build . --config Release
 cmake --build . --config Release --target install
 
-export CTEST_OUTPUT_ON_FAILURE=1
-cmake --build . --config Release --target test
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
+      export CTEST_OUTPUT_ON_FAILURE=1
+      cmake --build . --config Release --target test
+fi
