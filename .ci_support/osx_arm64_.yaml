@@ -1,5 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+- '11.0'
 abseil_cpp:
 - '20210324.2'
 boost_cpp:
@@ -29,14 +29,14 @@ libprotobuf:
 lua:
 - '5'
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
   cairo:
     max_pin: x.x
 target_platform:
-- osx-64
+- osx-arm64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
