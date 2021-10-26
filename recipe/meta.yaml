@@ -26,6 +26,7 @@ requirements:
     - ninja
     - cmake
     - pkg-config
+    - libprotobuf  # [build_platform != target_platform]
   host:
     - ceres-solver 1.*
     - eigen
