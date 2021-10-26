@@ -1,5 +1,9 @@
-conda_forge_output_validation: true
-provider: {linux_aarch64: default}
-
 bot:
-  abi_migration_branches: [v1]
+  abi_migration_branches:
+  - v1
+build_platform:
+  osx_arm64: osx_64
+conda_forge_output_validation: true
+provider:
+  linux_aarch64: default
+test_on_native_only: true
