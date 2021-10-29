@@ -30,6 +30,7 @@ requirements:
     - ninja
     - cmake
     - pkg-config
+    - libprotobuf  # [build_platform != target_platform]
   host:
     - abseil-cpp
     - ceres-solver 1.*
