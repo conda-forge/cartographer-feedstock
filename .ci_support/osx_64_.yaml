@@ -23,7 +23,7 @@ glib:
 glog:
 - '0.5'
 libprotobuf:
-- '3.18'
+- '3.19'
 lua:
 - '5'
 macos_machine:
