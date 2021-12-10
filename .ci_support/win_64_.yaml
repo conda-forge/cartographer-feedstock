@@ -19,7 +19,7 @@ glib:
 glog:
 - '0.5'
 libprotobuf:
-- '3.18'
+- '3.19'
 lua:
 - '5'
 pin_run_as_build:
