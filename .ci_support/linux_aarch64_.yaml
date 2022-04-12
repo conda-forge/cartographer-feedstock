@@ -7,7 +7,7 @@ boost_cpp:
 c_compiler:
 - gcc
 c_compiler_version:
-- '9'
+- '10'
 cairo:
 - '1.16'
 cdt_arch:
@@ -21,7 +21,7 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '9'
+- '10'
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 gflags:
@@ -31,7 +31,7 @@ glib:
 glog:
 - '0.5'
 libprotobuf:
-- '3.19'
+- '3.20'
 lua:
 - '5'
 pin_run_as_build:
