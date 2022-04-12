@@ -5,7 +5,7 @@ boost_cpp:
 c_compiler:
 - clang
 c_compiler_version:
-- '11'
+- '12'
 cairo:
 - '1.16'
 channel_sources:
@@ -15,7 +15,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '11'
+- '12'
 gflags:
 - '2.2'
 glib:
@@ -23,7 +23,7 @@ glib:
 glog:
 - '0.5'
 libprotobuf:
-- '3.19'
+- '3.20'
 lua:
 - '5'
 macos_machine:
