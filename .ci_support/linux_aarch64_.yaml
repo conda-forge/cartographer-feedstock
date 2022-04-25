@@ -27,7 +27,7 @@ gflags:
 glib:
 - '2'
 glog:
-- '0.5'
+- '0.6'
 libprotobuf:
 - '3.20'
 lua:
