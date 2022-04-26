@@ -1,6 +1,8 @@
 mkdir build
 cd build
 
+set CL=/DNOMINMAX=1 %CL%
+
 cmake ^
     -G "Ninja" ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
