@@ -33,7 +33,7 @@ requirements:
     - libprotobuf  # [build_platform != target_platform]
   host:
     - abseil-cpp
-    - ceres-solver 1.*
+    - ceres-solver
     - eigen
     - gflags
     - glog
