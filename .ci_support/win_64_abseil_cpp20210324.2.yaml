@@ -1,0 +1,31 @@
+abseil_cpp:
+- '20210324.2'
+boost_cpp:
+- 1.74.0
+c_compiler:
+- vs2017
+cairo:
+- '1.16'
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- vs2017
+gflags:
+- '2.2'
+glib:
+- '2'
+glog:
+- '0.6'
+libprotobuf:
+- '3.19'
+lua:
+- '5'
+pin_run_as_build:
+  boost-cpp:
+    max_pin: x.x.x
+  cairo:
+    max_pin: x.x
+target_platform:
+- win-64
