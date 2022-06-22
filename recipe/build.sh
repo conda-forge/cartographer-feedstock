@@ -14,6 +14,7 @@ cmake ${CMAKE_ARGS} .. \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_INSTALL_LIBDIR=lib \
       -DCMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP=ON \
+      -DCMAKE_CXX_STANDARD=14 \
       -DBUILD_SHARED_LIBS=ON
 
 cmake --build . --config Release
