@@ -18,7 +18,7 @@ source:
       - fix-testing.patch
 
 build:
-  number: 6
+  number: 7
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -34,6 +34,7 @@ requirements:
   host:
     - abseil-cpp
     - ceres-solver
+    - libblas
     - eigen
     - gflags
     - glog
