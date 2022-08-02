@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ef2fcb3..d18f62b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -228,8 +228,6 @@ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
+   "${EIGEN3_INCLUDE_DIR}")
+ target_link_libraries(${PROJECT_NAME} PUBLIC ${EIGEN3_LIBRARIES})
+ 
+-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
+-  "${CERES_INCLUDE_DIRS}")
+ target_link_libraries(${PROJECT_NAME} PUBLIC ${CERES_LIBRARIES})
+ 
+ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
