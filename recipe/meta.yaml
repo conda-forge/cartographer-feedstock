@@ -41,7 +41,7 @@ requirements:
     - gflags
     - glog
     - lua
-    - cairo 1.16.0 *_1011
+    - cairo
     - glib
     - boost-cpp
     - gtest
