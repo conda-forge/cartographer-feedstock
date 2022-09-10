@@ -20,7 +20,7 @@ source:
       - remove-ceres-include-dirs.patch
 
 build:
-  number: 10
+  number: 11
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -34,7 +34,7 @@ requirements:
     - pkg-config
     - libprotobuf  # [build_platform != target_platform]
   host:
-    - abseil-cpp
+    - libabseil
     - ceres-solver
     - libblas
     - eigen
