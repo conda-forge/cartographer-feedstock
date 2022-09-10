@@ -1,5 +1,5 @@
 abseil_cpp:
-- '20210324.2'
+- '20220623.0'
 boost_cpp:
 - 1.74.0
 c_compiler:
@@ -9,7 +9,7 @@ c_compiler_version:
 cairo:
 - '1.16'
 cdt_name:
-- cos7
+- cos6
 channel_sources:
 - conda-forge
 channel_targets:
@@ -38,7 +38,7 @@ pin_run_as_build:
   cairo:
     max_pin: x.x
 target_platform:
-- linux-ppc64le
+- linux-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
