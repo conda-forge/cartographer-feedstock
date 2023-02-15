@@ -3,9 +3,9 @@ boost_cpp:
 c_compiler:
 - gcc
 c_compiler_version:
-- '10'
+- '11'
 cairo:
-- '1.16'
+- '1'
 cdt_name:
 - cos6
 channel_sources:
@@ -15,7 +15,7 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '10'
+- '11'
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 gflags:
@@ -25,7 +25,7 @@ glib:
 glog:
 - '0.6'
 libabseil:
-- '20220623.0'
+- '20230125'
 libblas:
 - 3.9 *netlib
 libprotobuf:
@@ -35,8 +35,6 @@ lua:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  cairo:
-    max_pin: x.x
 target_platform:
 - linux-64
 zip_keys:
