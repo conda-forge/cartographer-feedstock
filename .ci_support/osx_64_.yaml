@@ -7,7 +7,7 @@ c_compiler:
 c_compiler_version:
 - '14'
 cairo:
-- '1.16'
+- '1'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -31,8 +31,6 @@ macos_machine:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  cairo:
-    max_pin: x.x
 target_platform:
 - osx-64
 zip_keys:

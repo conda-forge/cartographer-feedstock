@@ -3,7 +3,7 @@ boost_cpp:
 c_compiler:
 - vs2019
 cairo:
-- '1.16'
+- '1'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -23,7 +23,5 @@ lua:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  cairo:
-    max_pin: x.x
 target_platform:
 - win-64
