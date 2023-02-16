@@ -7,7 +7,7 @@ c_compiler:
 c_compiler_version:
 - '14'
 cairo:
-- '1.16'
+- '1'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -23,7 +23,7 @@ glib:
 glog:
 - '0.6'
 libabseil:
-- '20220623.0'
+- '20230125'
 libblas:
 - 3.9 *netlib
 libprotobuf:
@@ -35,8 +35,6 @@ macos_machine:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  cairo:
-    max_pin: x.x
 target_platform:
 - osx-arm64
 zip_keys:
