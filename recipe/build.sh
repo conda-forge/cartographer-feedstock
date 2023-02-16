@@ -13,7 +13,8 @@ cmake ${CMAKE_ARGS} .. \
       -DCMAKE_CXX_STANDARD=17 \
       -DCMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP=ON \
       -DCMAKE_PREFIX_PATH=$PREFIX \
-      -DBUILD_SHARED_LIBS=ON
+      -DBUILD_SHARED_LIBS=ON \
+      -DABSL_LEGACY_THREAD_ANNOTATIONS=1
 
 cmake --build . --config Release
 cmake --build . --config Release --target install
