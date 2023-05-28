@@ -15,7 +15,7 @@ source:
       - fix-log.patch      # [win]
 
 build:
-  number: 17
+  number: 18
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
