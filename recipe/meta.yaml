@@ -18,6 +18,7 @@ source:
       - fix-testing.patch
       # necessary for ceres >=2.1
       - remove-ceres-include-dirs.patch
+      - fix-werror.patch
 
 build:
   number: 14
