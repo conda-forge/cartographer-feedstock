@@ -19,6 +19,7 @@ source:
       # necessary for ceres >=2.1
       - remove-ceres-include-dirs.patch
       - fix-werror.patch
+      - fix-protobuf23.patch
 
 build:
   number: 14
