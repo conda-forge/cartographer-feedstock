@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ef2fcb3e69..08dff22544 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -268,7 +262,7 @@ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
+   ${PROTOBUF_INCLUDE_DIR})
+ # TODO(hrapp): This should not explicitly list pthread and use
+ # PROTOBUF_LIBRARIES, but that failed on first try.
+-target_link_libraries(${PROJECT_NAME} PUBLIC ${PROTOBUF_LIBRARY} 
++target_link_libraries(${PROJECT_NAME} PUBLIC protobuf::libprotobuf
+   absl::algorithm
+   absl::base
+   absl::debugging
