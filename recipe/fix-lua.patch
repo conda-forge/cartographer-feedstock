@@ -2,7 +2,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index ef2fcb3e6..59c41213d 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -38,14 +38,14 @@ endif()
+@@ -38,14 +38,18 @@ endif()
  find_package(Boost REQUIRED COMPONENTS ${BOOST_COMPONENTS})
  find_package(Ceres REQUIRED COMPONENTS SuiteSparse)
  find_package(Eigen3 REQUIRED)
@@ -18,7 +18,11 @@ index ef2fcb3e6..59c41213d 100644
 +  set(LUA_LIBRARY ${CMAKE_INSTALL_PREFIX}/lib/liblua${CMAKE_SHARED_LIBRARY_SUFFIX})
  endif()
 +find_package(Lua REQUIRED)
-+find_package(Protobuf CONFIG REQUIRED)
++set(protobuf_MODULE_COMPATIBLE TRUE CACHE INTERNAL "")
++find_package(Protobuf CONFIG)
++if(NOT Protobuf_FOUND)
++  find_package(Protobuf REQUIRED)
++endif()
  
  if (${BUILD_GRPC})
    find_package(async_grpc REQUIRED)
