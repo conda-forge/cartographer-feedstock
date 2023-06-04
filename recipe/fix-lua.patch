@@ -18,7 +18,7 @@ index ef2fcb3e6..59c41213d 100644
 +  set(LUA_LIBRARY ${CMAKE_INSTALL_PREFIX}/lib/liblua${CMAKE_SHARED_LIBRARY_SUFFIX})
  endif()
 +find_package(Lua REQUIRED)
-+find_package(Protobuf 3.0.0 REQUIRED)
++find_package(Protobuf CONFIG REQUIRED)
  
  if (${BUILD_GRPC})
    find_package(async_grpc REQUIRED)
