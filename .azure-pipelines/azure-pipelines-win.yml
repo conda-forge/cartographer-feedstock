@@ -11,8 +11,8 @@ jobs:
       win_64_libprotobuf3.21:
         CONFIG: win_64_libprotobuf3.21
         UPLOAD_PACKAGES: 'True'
-      win_64_libprotobuf4.23.2:
-        CONFIG: win_64_libprotobuf4.23.2
+      win_64_libprotobuf4.23.3:
+        CONFIG: win_64_libprotobuf4.23.3
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables:
