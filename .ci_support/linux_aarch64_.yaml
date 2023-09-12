@@ -1,3 +1,5 @@
+BUILD:
+- aarch64-conda_cos7-linux-gnu
 boost_cpp:
 - 1.78.0
 c_compiler:
@@ -6,6 +8,8 @@ c_compiler_version:
 - '12'
 cairo:
 - '1'
+cdt_arch:
+- aarch64
 cdt_name:
 - cos7
 channel_sources:
@@ -25,18 +29,18 @@ glib:
 glog:
 - '0.6'
 libabseil:
-- '20230125'
+- '20230802'
 libblas:
 - 3.9 *netlib
 libprotobuf:
-- '3.21'
+- 4.23.4
 lua:
 - '5'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
 target_platform:
-- linux-ppc64le
+- linux-aarch64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
