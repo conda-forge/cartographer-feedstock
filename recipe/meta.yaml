@@ -22,7 +22,7 @@ source:
       - fix-protobuf23.patch
 
 build:
-  number: 16
+  number: 17
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -45,7 +45,7 @@ requirements:
     - lua
     - cairo
     - glib
-    - boost-cpp
+    - libboost-devel
     - gtest
     - gmock
     - libprotobuf
@@ -61,7 +61,6 @@ requirements:
     - glog
     - lua
     - cairo
-    - boost-cpp
     - libprotobuf
     - xorg-libx11      # [unix]
     - xorg-libxext     # [unix]
