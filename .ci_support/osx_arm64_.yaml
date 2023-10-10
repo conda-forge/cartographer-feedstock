@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '15'
+- '16'
 cairo:
 - '1'
 channel_sources:
@@ -13,7 +13,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '15'
+- '16'
 gflags:
 - '2.2'
 glib:
@@ -27,7 +27,7 @@ libblas:
 libboost_devel:
 - '1.82'
 libprotobuf:
-- 4.23.4
+- 4.24.3
 lua:
 - '5'
 macos_machine:
