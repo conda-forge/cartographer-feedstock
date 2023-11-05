@@ -55,13 +55,6 @@ requirements:
     - xorg-libxau      # [unix]
 
   run:
-    - ceres-solver
-    - eigen
-    - gflags
-    - glog
-    - lua
-    - cairo
-    - libprotobuf
     - xorg-libx11      # [unix]
     - xorg-libxext     # [unix]
     - xorg-libxrender  # [unix]
