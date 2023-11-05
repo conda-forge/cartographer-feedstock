@@ -56,12 +56,6 @@ requirements:
     - xorg-libxrender  # [unix]
     - xorg-libxau      # [unix]
 
-  run:
-    - xorg-libx11      # [unix]
-    - xorg-libxext     # [unix]
-    - xorg-libxrender  # [unix]
-    - xorg-libxau      # [unix]
-
 test:
   commands:
     - if not exist %LIBRARY_LIB%\\cartographer.lib exit 1  # [win]
