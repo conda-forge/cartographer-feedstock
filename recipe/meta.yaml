@@ -20,9 +20,13 @@ source:
       - remove-ceres-include-dirs.patch
       - fix-werror.patch
       - fix-protobuf23.patch
+      # fix for ceres >=2.2
+      - 1882.patch
+      # fix newer libabseil
+      - 1919.patch
 
 build:
-  number: 18
+  number: 19
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -48,19 +52,6 @@ requirements:
     - libboost-devel
     - gtest
     - gmock
-    - libprotobuf
-    - xorg-libx11      # [unix]
-    - xorg-libxext     # [unix]
-    - xorg-libxrender  # [unix]
-    - xorg-libxau      # [unix]
-
-  run:
-    - ceres-solver
-    - eigen
-    - gflags
-    - glog
-    - lua
-    - cairo
     - libprotobuf
     - xorg-libx11      # [unix]
     - xorg-libxext     # [unix]
