@@ -20,6 +20,8 @@ source:
       - remove-ceres-include-dirs.patch
       - fix-werror.patch
       - fix-protobuf23.patch
+      # fix for ceres >=2.2
+      - 1882.patch
       # fix newer libabseil
       - 1919.patch
 
