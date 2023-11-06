@@ -356,6 +356,15 @@ index 246707b26d..985604ea7f 100644
                    &problem));
      if (frozen) {
        problem.SetParameterBlockConstant(C_nodes.at(node_id_data.id).rotation());
+@@ -361,7 +361,7 @@ void OptimizationProblem3D::Solve(
+       TrajectoryData& trajectory_data = trajectory_data_.at(trajectory_id);
+ 
+       problem.AddParameterBlock(trajectory_data.imu_calibration.data(), 4,
+-                                new ceres::QuaternionParameterization());
++                                new ceres::QuaternionManifold());
+       if (!options_.use_online_imu_extrinsics_in_3d()) {
+         problem.SetParameterBlockConstant(
+             trajectory_data.imu_calibration.data());
 @@ -550,9 +548,7 @@ void OptimizationProblem3D::Solve(
                      Eigen::AngleAxisd(
                          transform::GetYaw(fixed_frame_pose_in_map.rotation()),
