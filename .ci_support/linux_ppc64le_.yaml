@@ -29,7 +29,7 @@ libblas:
 libboost_devel:
 - '1.82'
 libprotobuf:
-- 4.24.4
+- 4.25.1
 lua:
 - '5'
 target_platform:
