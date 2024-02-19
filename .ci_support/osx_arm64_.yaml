@@ -19,7 +19,7 @@ gflags:
 glib:
 - '2'
 glog:
-- '0.6'
+- '0.7'
 libabseil:
 - '20230802'
 libblas:
