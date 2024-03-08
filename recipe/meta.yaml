@@ -26,7 +26,7 @@ source:
       - 1919.patch
 
 build:
-  number: 22
+  number: 23
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
