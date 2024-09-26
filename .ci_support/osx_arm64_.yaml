@@ -5,7 +5,7 @@ MACOSX_SDK_VERSION:
 c_compiler:
 - clang
 c_compiler_version:
-- '16'
+- '17'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -19,7 +19,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '16'
+- '17'
 gflags:
 - '2.2'
 glib:
@@ -27,13 +27,13 @@ glib:
 glog:
 - '0.7'
 libabseil:
-- '20240116'
+- '20240722'
 libblas:
 - 3.9 *netlib
 libboost_devel:
 - '1.86'
 libprotobuf:
-- 4.25.3
+- 5.27.5
 lua:
 - '5'
 macos_machine:
