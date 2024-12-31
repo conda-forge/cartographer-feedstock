@@ -49,6 +49,7 @@ requirements:
     - lua
     - cairo
     - glib
+    - expat
     - libboost-devel
     - gtest
     - gmock
