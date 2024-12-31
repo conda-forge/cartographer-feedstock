@@ -54,7 +54,7 @@ requirements:
     - gmock
     - libabseil
     - libprotobuf
-    - cairo
+    - zlib
     - xorg-libx11      # [unix]
     - xorg-libxext     # [unix]
     - xorg-libxrender  # [unix]
