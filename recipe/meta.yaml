@@ -41,7 +41,6 @@ requirements:
     - pkg-config
     - libprotobuf  # [build_platform != target_platform]
   host:
-    - libabseil
     - ceres-solver
     - libblas
     - eigen
@@ -53,7 +52,9 @@ requirements:
     - libboost-devel
     - gtest
     - gmock
+    - libabseil
     - libprotobuf
+    - cairo
     - xorg-libx11      # [unix]
     - xorg-libxext     # [unix]
     - xorg-libxrender  # [unix]
