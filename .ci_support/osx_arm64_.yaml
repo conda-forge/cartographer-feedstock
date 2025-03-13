@@ -20,6 +20,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '18'
+expat:
+- '2'
 gflags:
 - '2.2'
 glib:
@@ -27,13 +29,13 @@ glib:
 glog:
 - '0.7'
 libabseil:
-- '20240722'
+- '20250127'
 libblas:
-- 3.9 *netlib
+- 3.9.* *netlib
 libboost_devel:
 - '1.86'
 libprotobuf:
-- 5.28.3
+- 5.29.3
 lua:
 - '5'
 macos_machine:
@@ -43,3 +45,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+zlib:
+- '1'
