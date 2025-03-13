@@ -10,6 +10,8 @@ channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2019
+expat:
+- '2'
 gflags:
 - '2.2'
 glib:
@@ -17,14 +19,16 @@ glib:
 glog:
 - '0.7'
 libabseil:
-- '20240722'
+- '20250127'
 libblas:
-- 3.9 *netlib
+- 3.9.* *netlib
 libboost_devel:
 - '1.86'
 libprotobuf:
-- 5.28.3
+- 5.29.3
 lua:
 - '5'
 target_platform:
 - win-64
+zlib:
+- '1'
