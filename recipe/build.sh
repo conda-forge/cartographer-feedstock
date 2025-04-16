@@ -19,7 +19,8 @@ cmake ${CMAKE_ARGS} .. \
       -DCMAKE_CXX_STANDARD=17 \
       -DCMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP=ON \
       -DCMAKE_PREFIX_PATH=$PREFIX \
-      -DBUILD_SHARED_LIBS=ON
+      -DBUILD_SHARED_LIBS=ON \
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 
 cmake --build . --config Release
 cmake --build . --config Release --target install
