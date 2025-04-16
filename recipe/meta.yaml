@@ -63,6 +63,8 @@ requirements:
     - xorg-libxext     # [unix]
     - xorg-libxrender  # [unix]
     - xorg-libxau      # [unix]
+  run:
+    - libboost-devel
 
 test:
   commands:
