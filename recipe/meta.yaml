@@ -24,6 +24,8 @@ source:
       - 1882.patch
       # fix newer libabseil
       - 1919.patch
+      # Add missing find_package Boost and Protobuf in cmake config file
+      - fix-missing-boost-protobuf-find-package.patch
 
 build:
   number: 30
