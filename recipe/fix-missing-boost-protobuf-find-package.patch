@@ -1,0 +1,18 @@
+diff --git a/cartographer-config.cmake.in b/cartographer-config.cmake.in
+index 98193da912..81df2d7c6e 100644
+--- a/cartographer-config.cmake.in
++++ b/cartographer-config.cmake.in
+@@ -40,6 +40,13 @@ if (WIN32)
+     find_package(glog REQUIRED)
+ endif()
+ find_package(absl ${QUIET_OR_REQUIRED_OPTION})
++set(BOOST_COMPONENTS iostreams)
++if(WIN32)
++  list(APPEND BOOST_COMPONENTS zlib)
++endif()
++find_package(Boost ${QUIET_OR_REQUIRED_OPTION} COMPONENTS ${BOOST_COMPONENTS})
++find_package(Protobuf ${QUIET_OR_REQUIRED_OPTION})
++
+ if(CARTOGRAPHER_HAS_GRPC)
+    find_package(async_grpc ${QUIET_OR_REQUIRED_OPTION})
+ endif()
