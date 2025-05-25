@@ -28,10 +28,15 @@ source:
       - fix-missing-boost-protobuf-find-package.patch
 
 build:
-  number: 30
+  number: 31
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
+
+  # gtest and gmock are used for tests, so we ignore their run_exports, see https://github.com/RoboStack/ros-jazzy/pull/54#issuecomment-2907902746
+  ignore_run_exports_from:
+    - gtest
+    - gmock
 
 requirements:
   build:
