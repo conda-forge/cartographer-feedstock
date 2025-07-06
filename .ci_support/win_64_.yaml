@@ -1,5 +1,5 @@
 c_compiler:
-- vs2019
+- vs2022
 c_stdlib:
 - vs
 cairo:
@@ -9,7 +9,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2019
+- vs2022
 expat:
 - '2'
 gflags:
@@ -19,13 +19,13 @@ glib:
 glog:
 - '0.7'
 libabseil:
-- '20250127'
+- '20250512'
 libblas:
 - 3.9.* *netlib
 libboost_devel:
 - '1.86'
 libprotobuf:
-- 5.29.3
+- 6.31.1
 lua:
 - '5'
 target_platform:
