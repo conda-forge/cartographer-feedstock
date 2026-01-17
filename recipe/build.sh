@@ -21,6 +21,7 @@ cmake ${CMAKE_ARGS} .. \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DBUILD_SHARED_LIBS=ON \
       -DLUA_INCLUDE_DIR="${PREFIX}/include/" \
+      -DLUA_LIBRARY="${PREFIX}/lib/liblua${SHLIB_EXT}" \
       -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 
 cmake --build . --config Release
