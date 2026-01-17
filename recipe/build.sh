@@ -20,6 +20,7 @@ cmake ${CMAKE_ARGS} .. \
       -DCMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP=ON \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DBUILD_SHARED_LIBS=ON \
+      -DLUA_INCLUDE_DIR="${PREFIX}/include/" \
       -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 
 cmake --build . --config Release
