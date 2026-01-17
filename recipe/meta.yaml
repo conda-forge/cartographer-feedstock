@@ -44,7 +44,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - ninja
-    - cmake
+    - cmake <4
     - pkg-config
     - libprotobuf  # [build_platform != target_platform]
   host:
