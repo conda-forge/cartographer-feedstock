@@ -22,7 +22,7 @@ cmake ${CMAKE_ARGS} .. \
       -DBUILD_SHARED_LIBS=ON \
       -DLUA_INCLUDE_DIR="${PREFIX}/include/" \
       -DLUA_LIBRARY="${PREFIX}/lib/liblua${SHLIB_EXT}" \
-      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.20
 
 cmake --build . --config Release
 cmake --build . --config Release --target install
