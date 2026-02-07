@@ -19,13 +19,13 @@ glib:
 glog:
 - '0.7'
 libabseil:
-- '20250512'
+- '20260107'
 libblas:
 - 3.9.* *netlib
 libboost_devel:
 - '1.88'
 libprotobuf:
-- 6.31.1
+- 6.33.5
 lua:
 - '5'
 target_platform:
