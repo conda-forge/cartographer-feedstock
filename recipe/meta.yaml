@@ -53,7 +53,8 @@ requirements:
     - eigen
     - gflags
     - glog
-    - lua
+    # temporary workaround till cmake 4.3 is released
+    - lua <5.5
     - cairo
     - glib
     - expat
