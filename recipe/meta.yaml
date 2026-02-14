@@ -28,7 +28,7 @@ source:
       - fix-missing-boost-protobuf-find-package.patch
 
 build:
-  number: 33
+  number: 34
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -53,7 +53,8 @@ requirements:
     - eigen
     - gflags
     - glog
-    - lua
+    # temporary workaround till cmake 4.3 is released
+    - lua <5.5
     - cairo
     - glib
     - expat
