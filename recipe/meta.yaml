@@ -26,9 +26,10 @@ source:
       - 1919.patch
       # Add missing find_package Boost and Protobuf in cmake config file
       - fix-missing-boost-protobuf-find-package.patch
+      - fix-cairo-pkgconfig.patch
 
 build:
-  number: 35
+  number: 36
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -56,6 +57,7 @@ requirements:
     # temporary workaround till cmake 4.3 is released
     - lua <5.5
     - cairo
+    - freetype
     - glib
     - expat
     - libboost-devel
