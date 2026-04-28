@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1729467..fe8aa93 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -61,7 +61,7 @@ endif()
+ 
+ include(FindPkgConfig)
+ if (NOT WIN32)
+-  PKG_SEARCH_MODULE(CAIRO REQUIRED cairo>=1.12.16)
++  PKG_SEARCH_MODULE(CAIRO REQUIRED "cairo >= 1.12.16")
+ else()
+   find_library(CAIRO_LIBRARIES cairo)
+ endif()

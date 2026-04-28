@@ -31,11 +31,9 @@ libabseil:
 libblas:
 - 3.9.* *netlib
 libboost_devel:
-- '1.88'
+- '1.90'
 libprotobuf:
 - 6.33.5
-lua:
-- '5'
 target_platform:
 - linux-ppc64le
 zip_keys:
