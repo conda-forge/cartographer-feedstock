@@ -27,9 +27,11 @@ source:
       # Add missing find_package Boost and Protobuf in cmake config file
       - fix-missing-boost-protobuf-find-package.patch
       - fix-cairo-pkgconfig.patch
+      # use Eigen's exported CMake target, required by Eigen >=5
+      - fix-eigen5.patch
 
 build:
-  number: 36
+  number: 37
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -52,6 +54,7 @@ requirements:
     - ceres-solver
     - libblas
     - eigen
+    - eigen-abi-devel
     - gflags
     - glog
     # temporary workaround till cmake 4.3 is released

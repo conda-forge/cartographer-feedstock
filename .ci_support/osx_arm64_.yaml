@@ -22,6 +22,8 @@ cxx_compiler_version:
 - '19'
 expat:
 - '2'
+freetype:
+- '2'
 gflags:
 - '2.2'
 glib:
