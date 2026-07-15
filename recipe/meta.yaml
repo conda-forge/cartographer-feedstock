@@ -31,7 +31,7 @@ source:
       - fix-eigen5.patch
 
 build:
-  number: 38
+  number: 39
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}

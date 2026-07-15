@@ -25,7 +25,7 @@ expat:
 freetype:
 - '2'
 gflags:
-- '2.2'
+- '2.3'
 glib:
 - '2'
 glog:
