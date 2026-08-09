@@ -4,6 +4,10 @@ c_stdlib:
 - vs
 cairo:
 - '1'
+cartographer_compat_libabseil:
+- '20260107'
+cartographer_compat_libprotobuf:
+- 6.33.5
 channel_sources:
 - conda-forge
 channel_targets:
@@ -22,14 +26,10 @@ glib:
 - '2'
 glog:
 - '0.7'
-libabseil:
-- '20260526'
 libblas:
 - 3.9.* *netlib
 libboost_devel:
 - '1.90'
-libprotobuf:
-- 7.35.1
 target_platform:
 - win-64
 zlib:
