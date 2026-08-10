@@ -1,5 +1,7 @@
 {% set name = "cartographer" %}
 {% set version = "2.0.0" %}
+{% set compat_libabseil = cartographer_compat_libabseil %}
+{% set compat_libprotobuf = cartographer_compat_libprotobuf %}
 
 package:
   name: {{ name }}
@@ -31,7 +33,7 @@ source:
       - fix-eigen5.patch
 
 build:
-  number: 39
+  number: 40
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -49,7 +51,7 @@ requirements:
     - ninja
     - cmake
     - pkg-config
-    - libprotobuf  # [build_platform != target_platform]
+    - libprotobuf {{ compat_libprotobuf }}  # [build_platform != target_platform]
   host:
     - ceres-solver
     - libblas
@@ -66,8 +68,8 @@ requirements:
     - libboost-devel
     - gtest
     - gmock
-    - libabseil
-    - libprotobuf
+    - libabseil {{ compat_libabseil }}
+    - libprotobuf {{ compat_libprotobuf }}
     - zlib
     - xorg-xorgproto   # [linux]
     - xorg-libx11      # [unix]

@@ -1,3 +1,10 @@
+# Transitional ABI variant for consumers blocked from Protobuf 7 by HDF5 2.
+# Custom keys avoid modifying or overriding conda-forge's global migrations.
+cartographer_compat_libabseil:
+  - 20260107
+cartographer_compat_libprotobuf:
+  - 6.33.5
+
 replacements:
   all_replacements:
     - tag: 'pkg-config build metadata'
